@@ -11,7 +11,7 @@ import {
 export default function Sidebar() {
   return (
     <>
-      <aside className="overflow-hidden fixed text-[#F9FAFB] top-0 left-0 w-[200px] h-full pt-4 border-r border-r-[#29292e]">
+      <aside className="overflow-hidden fixed text-[#F9FAFB] top-0 left-0 w-[250px] h-full pt-4 border-r border-r-[#29292e]">
         <h1 className="font-bold text-[25px] ml-4">Movies.</h1>
         <div className="p-4 mt-2 items-center justify-center">
           <span className="text-[#5f5f5f] text-xs font-bold">Menu</span>
