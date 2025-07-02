@@ -12,7 +12,7 @@ export default function Header() {
     <>
       <header className="p-2 mt-2 flex justify-between items-center text-[#F9FAFB]">
         <div className="ml-[270px] p-1 rounded-lg text-[#F9FAFB] flex items-center justify-center">
-          <ChevronLeft className="cursor-pointer"/>
+          <ChevronLeft className="cursor-pointer" />
           <ChevronRight className="text-[#5f5f5f] cursor-pointer" />
           <div className="flex w-[300px] ml-4 border-2 border-[#5f5f5f] rounded-full p-1">
             <div className="flex items-center justify-center ml-3">
@@ -39,7 +39,7 @@ export default function Header() {
             </li>
             <li className="p-2">
               <button className="duration-300 cursor-pointer flex items-center">
-                <CircleUserRound size={32}/>
+                <CircleUserRound size={32} />
                 <div className="ml-4 text-left">
                   <span>Vinicius V.</span>
                   <p className="text-[#5f5f5f] text-xs">Level 20</p>
