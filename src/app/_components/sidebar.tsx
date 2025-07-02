@@ -36,7 +36,7 @@ export default function Sidebar() {
           </button>
           <button className="relative text-[#5f5f5f] flex items-center h-[50px] w-full font-semibold py-0 border-0 cursor-pointer text-left duration-300 hover:text-[#F9FAFB]">
             <Users className="w-5" />
-            <span className="ml-2">parties</span>
+            <span className="ml-2">Parties</span>
           </button>
         </div>
         <div className="p-4 items-center justify-center">
