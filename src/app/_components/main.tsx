@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -8,7 +9,7 @@ const LIMIT = 5;
 const categories = [
   {
     title: "Em Alta",
-    movies: Array.from({ length: 8 }, (_, i) => ({
+    movies: Array.from({ length: 6 }, (_, i) => ({
       id: i + 1,
       title: `Filme ${i + 1}`,
       image: "/images/bladerunner.jpg",
@@ -16,7 +17,7 @@ const categories = [
   },
   {
     title: "Ação",
-    movies: Array.from({ length: 8 }, (_, i) => ({
+    movies: Array.from({ length: 6 }, (_, i) => ({
       id: i + 11,
       title: `Ação ${i + 1}`,
       image: "/images/bladerunner.jpg",
@@ -24,13 +25,24 @@ const categories = [
   },
   {
     title: "Ficção Científica",
-    movies: Array.from({ length: 8 }, (_, i) => ({
+    movies: Array.from({ length: 6 }, (_, i) => ({
       id: i + 21,
       title: `Sci-Fi ${i + 1}`,
       image: "/images/bladerunner.jpg",
     })),
   },
 ];
+
+const featured = {
+  title: "A Odisseia",
+  description:
+    "Após a Guerra de Troia, Odisseu enfrenta uma perigosa jornada de volta para Ítaca.",
+  image: "/images/odisseia.jpg",
+};
+
+// const categories = [
+//   // ... suas categorias aqui
+// ];
 
 export default function Main() {
   const [expanded, setExpanded] = useState({});
@@ -40,7 +52,35 @@ export default function Main() {
   };
 
   return (
-    <main className="px-8 py-8 text-white flex items-center justify-center min-h-screen ml-36">
+    <main className="w-full px-8 py-8 text-white ml-[250px]">
+      <section className="relative w-[167vh] h-[420px] rounded-3xl overflow-hidden mb-12">
+        <Image
+          src={featured.image}
+          alt={featured.title}
+          fill
+          className="object-cover"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+
+        <div className="absolute bottom-0 left-0 p-10 space-y-3 max-w-xl">
+          <span className="text-xs font-semibold uppercase tracking-widest text-blue-900">
+            Em Destaque
+          </span>
+          <h1 className="text-4xl font-bold">{featured.title}</h1>
+          <p className="text-sm text-gray-300 leading-relaxed">
+            {featured.description}
+          </p>
+          <div className="flex gap-3 pt-2">
+            <button className="rounded-full bg-white px-6 py-2 text-sm font-bold text-black hover:bg-gray-300 transition duration-300 cursor-pointer">
+              Assistir
+            </button>
+            <button className="rounded-full border border-white px-6 py-2 text-sm font-semibold text-white hover:bg-white/10 transition duration-300 cursor-pointer">
+              +
+            </button>
+          </div>
+        </div>
+      </section>
       <div className="space-y-12">
         {categories.map((category) => {
           const isExpanded = expanded[category.title];
@@ -148,6 +188,9 @@ export default function Main() {
                               border-white
                               text-white
                               cursor-pointer
+                              hover:bg-white/10 
+                              transition 
+                              duration-300
                             "
                           >
                             +
@@ -157,31 +200,21 @@ export default function Main() {
                     </div>
                   ))}
 
-                  {/* {category.movies.length > LIMIT && (
+                  {category.movies.length > LIMIT && (
                     <div className="flex shrink-0 items-center">
                       <button
                         onClick={() => toggleExpand(category.title)}
                         className="
-                          h-[150px]
-                          w-[100px]
-                          rounded-2xl
-                          border
-                          border-white/30
-                          bg-white/10
                           text-sm
                           font-semibold
                           text-white
-                          backdrop-blur-sm
-                          hover:bg-white/20
-                          transition
-                          duration-300
                           cursor-pointer
                         "
                       >
-                        {isExpanded ? "← Ver menos" : "Ver mais →"}
+                        {isExpanded ? <ChevronLeft /> : <ChevronRight />}
                       </button>
                     </div>
-                  )} */}
+                  )}
                 </div>
               </div>
             </section>
