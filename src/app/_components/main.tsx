@@ -41,7 +41,6 @@ const featured = {
 };
 
 // const categories = [
-//   // ... suas categorias aqui
 // ];
 
 export default function Main() {
