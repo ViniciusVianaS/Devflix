@@ -28,21 +28,31 @@ export default function Header() {
         <nav>
           <ul className="list-none flex gap-6 flex-wrap items-center mr-18">
             <li className="p-2">
-              <a href="#" className="duration-300 cursor-pointer hover:opacity-50" title="notifications">
+              <a
+                href="#"
+                className="duration-300 cursor-pointer hover:opacity-50"
+                title="notifications"
+              >
                 <BellDot />
               </a>
             </li>
             <li className=" p-2">
-              <a href="#" className="duration-300 cursor-pointer hover:opacity-50" title="chat">
+              <a
+                href="#"
+                className="duration-300 cursor-pointer hover:opacity-50"
+                title="chat"
+              >
                 <MessageCircleMore />
               </a>
             </li>
             <li className="p-2">
-              <button className="duration-300 cursor-pointer flex items-center hover:opacity-50" title="profile">
+              <button
+                className="duration-300 cursor-pointer flex items-center hover:opacity-50"
+                title="profile"
+              >
                 <CircleUserRound size={32} />
                 <div className="ml-4 text-left">
                   <span>Vinicius V.</span>
-                  <p className="text-[#5f5f5f] text-xs">Level 20</p>
                 </div>
               </button>
             </li>

@@ -12,7 +12,7 @@ export default function Sidebar() {
   return (
     <>
       <aside className="overflow-hidden fixed text-[#F9FAFB] top-0 left-0 w-[250px] h-full pt-4 border-r border-r-[#29292e] bg-[#1F1F24]">
-        <h1 className="font-bold text-[25px] ml-4">Movies.</h1>
+        <h1 className="font-bold text-[25px] ml-4 uppercase">devflix.</h1>
         <div className="p-4 mt-2 items-center justify-center">
           <span className="text-[#5f5f5f] text-xs font-bold">Menu</span>
           <button className="relative flex items-center w-30 h-[50px] font-semibold py-0 border-0 cursor-pointer text-left rounded backdrop-blur-sm transition duration-300">
