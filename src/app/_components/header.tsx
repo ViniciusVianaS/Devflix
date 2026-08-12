@@ -12,11 +12,11 @@ export default function Header() {
     <>
       <header className="p-2 mt-2 flex justify-between items-center text-[#F9FAFB]">
         <div className="ml-[270px] p-1 rounded-lg text-[#F9FAFB] flex items-center justify-center">
-          <ChevronLeft className="cursor-pointer" />
-          <ChevronRight className="text-[#5f5f5f] cursor-pointer" />
+          <ChevronLeft className="text-[#5f5f5f] cursor-pointer hover:text-white duration-300" />
+          <ChevronRight className="text-[#5f5f5f] cursor-pointer hover:text-white duration-300" />
           <div className="flex w-[300px] ml-4 border-2 border-[#5f5f5f] rounded-full p-1">
             <div className="flex items-center justify-center ml-3">
-              <Search className="cursor-pointer text-[#5f5f5f]" />
+              <Search className="cursor-pointer text-white" />
               <input
                 placeholder="Search..."
                 type="search"
