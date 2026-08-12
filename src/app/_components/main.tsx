@@ -102,7 +102,7 @@ function MovieCarousel({ movies }) {
           <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 transition duration-300 group-hover:opacity-100">
             <h3 className="text-lg font-semibold">{movie.title}</h3>
             <div className="mt-2 flex items-center gap-2">
-              <button className="rounded-full bg-white px-3 py-1 text-sm font-bold text-black cursor-pointer hover:bg-gray-300 duration-300">
+              <button className="rounded-full bg-white px-3 py-1 text-sm text-black font-semibold uppercase cursor-pointer hover:bg-gray-300 duration-300">
                 Assistir
               </button>
               <button className="flex h-8 w-8 items-center justify-center rounded-full border border-white text-white cursor-pointer hover:bg-white/10 transition duration-300">
@@ -136,7 +136,7 @@ export default function Main() {
             {featured.description}
           </p>
           <div className="flex gap-3 pt-2">
-            <button className="rounded-full bg-white px-6 py-2 text-sm font-bold uppercase text-black hover:bg-gray-300 transition duration-300 cursor-pointer">
+            <button className="rounded-full bg-white px-6 py-2 uppercase text-sm font-semibold text-black hover:bg-gray-300 transition duration-300 cursor-pointer">
               Assistir
             </button>
             <button className="rounded-full border border-white px-6 py-2 text-sm font-semibold text-white hover:bg-white/10 transition duration-300 cursor-pointer">
