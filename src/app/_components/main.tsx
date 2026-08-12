@@ -8,7 +8,7 @@ const categories = [
     title: "Em Alta",
     movies: Array.from({ length: 8 }, (_, i) => ({
       id: i + 1,
-      title: `Filme ${i + 1}`,
+      title: "Blade Runner",
       image: "/images/bladerunner.jpg",
     })),
   },
@@ -16,16 +16,16 @@ const categories = [
     title: "Ação",
     movies: Array.from({ length: 8 }, (_, i) => ({
       id: i + 11,
-      title: `Ação ${i + 1}`,
-      image: "/images/bladerunner.jpg",
+      title: "Homem Aranha",
+      image: "/images/spidermen.jpg",
     })),
   },
   {
     title: "Ficção Científica",
     movies: Array.from({ length: 8 }, (_, i) => ({
       id: i + 21,
-      title: `Sci-Fi ${i + 1}`,
-      image: "/images/bladerunner.jpg",
+      title: "Devorador de Estrelas",
+      image: "/images/devorador.jpg",
     })),
   },
 ];
@@ -37,7 +37,6 @@ const featured = {
   image: "/images/odisseia.jpg",
 };
 
-// Hook para arrastar o carrossel com o mouse
 function useDragScroll() {
   const ref = useRef(null);
   const isDragging = useRef(false);
