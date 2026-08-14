@@ -1,41 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const categories = [
-  {
-    title: "Em Alta",
-    movies: Array.from({ length: 8 }, (_, i) => ({
-      id: i + 1,
-      title: "Blade Runner",
-      image: "/images/bladerunner.jpg",
-    })),
-  },
-  {
-    title: "Ação",
-    movies: Array.from({ length: 8 }, (_, i) => ({
-      id: i + 11,
-      title: "Homem Aranha",
-      image: "/images/spidermen.jpg",
-    })),
-  },
-  {
-    title: "Ficção Científica",
-    movies: Array.from({ length: 8 }, (_, i) => ({
-      id: i + 21,
-      title: "Devorador de Estrelas",
-      image: "/images/devorador.jpg",
-    })),
-  },
-];
-
-const featured = {
-  title: "A Odisseia",
-  description:
-    "Após a Guerra de Troia, Odisseu enfrenta uma perigosa jornada de volta para Ítaca.",
-  image: "/images/odisseia.jpg",
-};
+interface Movie {
+  id: number;
+  name: string;
+  description: string;
+  imagem: string;
+}
 
 function useDragScroll() {
   const ref = useRef(null);
@@ -49,29 +22,25 @@ function useDragScroll() {
     scrollLeft.current = ref.current.scrollLeft;
     ref.current.style.cursor = "grabbing";
   };
-
   const onMouseLeave = () => {
     isDragging.current = false;
     ref.current.style.cursor = "grab";
   };
-
   const onMouseUp = () => {
     isDragging.current = false;
     ref.current.style.cursor = "grab";
   };
-
   const onMouseMove = (e) => {
     if (!isDragging.current) return;
     e.preventDefault();
     const x = e.pageX - ref.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5;
-    ref.current.scrollLeft = scrollLeft.current - walk;
+    ref.current.scrollLeft = scrollLeft.current - (x - startX.current) * 1.5;
   };
 
   return { ref, onMouseDown, onMouseLeave, onMouseUp, onMouseMove };
 }
 
-function MovieCarousel({ movies }) {
+function MovieCarousel({ movies }: { movies: Movie[] }) {
   const drag = useDragScroll();
 
   return (
@@ -89,17 +58,15 @@ function MovieCarousel({ movies }) {
           className="group relative h-[150px] w-[260px] shrink-0 overflow-hidden rounded-2xl transition-all duration-300 hover:z-20 hover:scale-105"
         >
           <Image
-            src={movie.image}
-            alt={movie.title}
+            src={`/${movie.imagem}`}
+            alt={movie.name}
             fill
             draggable={false}
             className="object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"
           />
-
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
-
           <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 transition duration-300 group-hover:opacity-100">
-            <h3 className="text-lg font-semibold">{movie.title}</h3>
+            <h3 className="text-lg font-semibold">{movie.name}</h3>
             <div className="mt-2 flex items-center gap-2">
               <button className="rounded-full bg-white px-3 py-1 text-sm text-black font-semibold uppercase cursor-pointer hover:bg-gray-300 duration-300">
                 Assistir
@@ -116,12 +83,46 @@ function MovieCarousel({ movies }) {
 }
 
 export default function Main() {
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/movies")
+      .then((res) => res.json())
+      .then((data) => {
+        setMovies(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erro ao buscar filmes:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  const featured = movies[5];
+
+  const categories = [
+    { title: "Em Alta", movies },
+    { title: "Ação", movies: movies.slice(4) },
+    // { title: "Ficção Científica", movies: movies.slice(3, 6) },
+  ];
+
+  if (loading) {
+    return (
+      <main className="w-full pl-[266px] pr-8 py-8 text-white flex items-center justify-center min-h-screen">
+        <p className="text-gray-400 animate-pulse">Carregando filmes...</p>
+      </main>
+    );
+  }
+
+  if (!featured) return null;
+
   return (
     <main className="w-full pl-[266px] pr-8 py-8 text-white">
-      <section className="relative w-[167vh] h-[420px] rounded-3xl overflow-hidden mb-12">
+      <section className="relative w-[168vh] h-[420px] rounded-3xl overflow-hidden mb-12">
         <Image
-          src={featured.image}
-          alt={featured.title}
+          src={`/${featured.imagem}`}
+          alt={featured.name}
           fill
           className="object-cover"
         />
@@ -130,7 +131,7 @@ export default function Main() {
           <span className="text-xs font-semibold uppercase tracking-widest text-blue-900">
             Em Destaque
           </span>
-          <h1 className="text-4xl font-bold">{featured.title}</h1>
+          <h1 className="text-4xl font-bold">{featured.name}</h1>
           <p className="text-sm text-gray-300 leading-relaxed">
             {featured.description}
           </p>

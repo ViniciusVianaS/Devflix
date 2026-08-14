@@ -2,51 +2,51 @@
   "movies": [
     {
       "id": 1,
-      "name": "Blade Runner",
-      "description": "Um caçador de androides aposentado é chamado de volta à ativa para caçar um grupo de replicantes fugitivos.",
-      "imagem": "images/bladerunner.jpg"
-    },
-    {
-      "id": 2,
       "name": "Devorador de Estrelas",
       "description": "Um jovem astronauta viaja através do espaço em busca de um planeta habitável.",
       "imagem": "images/devorador.jpg"
     },
     {
+      "id": 2,
+      "name": "Duna Parte III",
+      "description": "A continuação da épica saga de Duna, onde Paul Atreides enfrenta novos desafios em seu caminho para se tornar o imperador do universo.",
+      "imagem": "images/duna.jpg"
+    },
+    {
       "id": 3,
-      "name": "A Odisseia",
-      "description": "Após a Guerra de Troia, Odisseu enfrenta uma perigosa jornada de volta para Ítaca.",
-      "imagem": "images/odisseia.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Homem Aranha",
-      "description": "Um jovem estudioso ganha poderes de aranha após ser picado por um inseto mutante.",
-      "imagem": "images/spidermen.jpg"
-    },
-    {
-      "id": 5,
       "name": "O Drama",
       "description": "Um drama emocional sobre a vida de uma família em situação difícil.",
       "imagem": "images/drama.jpg"
     },
     {
-      "id": 6,
+      "id": 4,
       "name": "Michael Jackson: O filme",
       "description": "Um documentário sobre a vida e carreira de Michael Jackson.",
       "imagem": "images/michael.jpg"
     },
     {
+      "id": 5,
+      "name": "Blade Runner",
+      "description": "Um caçador de androides aposentado é chamado de volta à ativa para caçar um grupo de replicantes fugitivos.",
+      "imagem": "images/bladerunner.jpg"
+    },
+    {
+      "id": 6,
+      "name": "A Odisseia",
+      "description": "Após a Guerra de Troia, Odisseu enfrenta uma perigosa jornada de volta para Ítaca.",
+      "imagem": "images/odisseia.jpg"
+    },
+    {
       "id": 7,
-      "name": "Casaco",
-      "price": 80,
-      "imagem": "images/casaco.jpg"
+      "name": "Homem Aranha",
+      "description": "Um jovem estudioso ganha poderes de aranha após ser picado por um inseto mutante.",
+      "imagem": "images/spidermen.jpg"
     },
     {
       "id": 8,
-      "name": "Tenis Nike",
-      "price": 420,
-      "imagem": "images/nike.jpg"
+      "name": "Quarteto Fantástico",
+      "description": "Um grupo de quatro heróis ganha poderes após serem expostos a radiação cósmica.",
+      "imagem": "images/four.jpg"
     }
   ]
 }
