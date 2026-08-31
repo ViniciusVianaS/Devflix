@@ -1,7 +1,7 @@
 # DevFlix
 ### Documentação do projeto ⚙
 ### Projeto
-Projeto desenvolvido com Next.js, React, TypeScript e Tailwind CSS, inspirado em plataformas de streaming. A aplicação apresenta filmes organizados em diferentes categorias, uma interface moderna e responsiva
+Projeto desenvolvido com Next.js, React, TypeScript e Tailwind CSS, inspirado em plataformas de streaming. A aplicação apresenta filmes organizados em diferentes categorias, uma interface moderna e responsiva, para os filmes criei uma api fake com ajuda da biblioteca json-server.
 ## Stacks 📚
 - Next
 - Typescript
